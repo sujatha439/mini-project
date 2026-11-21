@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Quiz App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="background-decorations">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <main class="quiz-container">
+    <!-- Header -->
+    <header class="quiz-header">
+      <div class="badge">Web Dev Basics</div>
+      <h1 class="quiz-title">Knowledge Check</h1>
+      
+      <!-- Progress Section -->
+      <div class="progress-section" id="progressSection">
+        <div class="progress-info">
+          <span class="question-count" id="questionCount">Question 1 of 5</span>
+          <span class="score-live" id="liveScore">Score: 0</span>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="progressBar"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Quiz Body (Active during questions) -->
+    <section class="quiz-body" id="quizBody">
+      <div class="question-box">
+        <h2 class="question-text" id="questionText">Loading question...</h2>
+      </div>
+
+      <div class="options-grid" id="optionsContainer" role="radiogroup" aria-label="Quiz Answer Options">
+        <!-- Options dynamically injected here -->
+      </div>
+
+      <div class="feedback-banner" id="feedbackBanner" aria-live="polite"></div>
+
+      <footer class="quiz-footer">
+        <button id="nextBtn" class="btn btn-primary" disabled>
+          <span>Next Question</span>
+          <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </footer>
+    </section>
+
+    <!-- Results Screen (Hidden initially) -->
+    <section class="results-container" id="resultsContainer" style="display: none;">
+      <div class="result-badge-wrapper">
+        <div class="result-icon-circle" id="resultIcon">🎉</div>
+      </div>
+      
+      <h2 class="result-title" id="resultHeading">Quiz Completed!</h2>
+      <p class="result-message" id="resultMessage">Here is how you performed:</p>
+
+      <div class="score-card">
+        <div class="score-circle">
+          <span class="score-value" id="finalScore">0</span>
+          <span class="score-total">/ 5</span>
+        </div>
+        <div class="score-stats">
+          <div class="stat-item">
+            <span class="stat-label">Accuracy</span>
+            <span class="stat-value" id="accuracyRate">0%</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-label">Status</span>
+            <span class="stat-value text-accent" id="statusLabel">Passed</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question Review Section -->
+      <div class="review-section">
+        <h3 class="review-title">Review Answers</h3>
+        <div class="review-list" id="reviewList">
+          <!-- Dynamically populated review summary -->
+        </div>
+      </div>
+
+      <button id="restartBtn" class="btn btn-primary btn-full">
+        <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="1 4 1 10 7 10"></polyline>
+          <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+        </svg>
+        <span>Retake Quiz</span>
+      </button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
